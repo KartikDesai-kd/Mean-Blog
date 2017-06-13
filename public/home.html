@@ -1,0 +1,54 @@
+
+   
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>My Blog</h1>
+                        <hr class="small">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container" ng-controller="BlogController">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview" ng-repeat="upload in uploads | orderBy : '-posted'| pagination: (currentPage - 1) * pageSize | limitTo: pageSize">
+                   
+                        <h2 class="post-title">
+                            {{upload.title}}
+                             
+                        </h2>
+                        <p ng-if="upload.file"><img ng-src='uploads/{{upload.file.filename}}' class="pull-center" height="450" width="750"></img></p> <br>
+                        <h3 class="post-subtitle">
+                            {{upload.body}}
+                        </h3>
+                    
+                    <p class="post-meta"><span>Submitted On {{upload.posted | date:"MM/dd/yyyy 'at' h:mma"}}</span></p>
+                    <hr>
+                </div>
+               
+               
+                
+                
+               
+                <!-- Pager -->
+                 <ul class="pager" uib-pagination total-items="uploads.length" items-per-page="pageSize" ng-model="currentPage "></ul>
+            </div>
+        </div>
+         <hr>
+   
+              
+               
+   
+    </div>
+
+   
+

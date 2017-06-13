@@ -1,0 +1,32 @@
+
+<div class="container">
+    <form name="myForm">  
+        <br><br><br><br>  
+    <h1>MY BLOG</h1>
+    <span class="pull-right"><a href="#!/">LogOut</a></span><br>
+    <hr style="border-style: inset;border-width: 1px;"/>
+    <input ng-model="upload.title" class="form-control" placeholder="Article Title" required /><br>
+    <textarea ng-model="upload.body" class="form-control" rows="11" placeholder="Body" required ></textarea><br>
+    <label>Select Image for your article:</label><input type="file" name="file" id="file" class="form-group" ng-model="upload.file" ngf-select ngf-max-size="25MB" /><br>
+    <span ng-hide="enable"> <button ng-click="submit(upload)" ng-disabled="myForm.$invalid" class="btn btn-primary btn-lg">Post</button> </span>
+    <span ng-show="enable"> <button ng-click="updatePost(upload)" class="btn btn-success btn-lg">Update</button></span>
+    <span> <button ng-click="resetForm()" class="btn btn-default btn-lg">Reset</button></span><br>
+    </form>
+    <hr/><hr/>
+    <div ng-repeat="upload in uploads | orderBy : '-posted'| pagination: (currentPage - 1) * pageSize | limitTo: pageSize">
+            <h2>
+                {{upload.title}}
+                <a ng-click="editPost(upload._id)" class="pull-right" title="Edit article"><span class="glyphicon glyphicon-pencil"></span></a> &nbsp;&nbsp;&nbsp;
+                <a ng-click="deletePost(upload._id)" class="pull-right" title="Remove article"><span class="glyphicon glyphicon-remove"></span></a>
+            </h2>
+           
+            <p ng-if="upload.file"><img ng-src='uploads/{{upload.file.filename}}' class="pull-center" height="350" width="650"></img></p> <br>
+            <p><h4>{{upload.body}}</h4></p>
+            <p><span><em>Submitted On {{upload.posted | date:"MM/dd/yyyy 'at' h:mma"}}</em> </span></p>
+            <hr/>
+          
+    </div>
+    <!-- Pager -->
+            <ul class="pager" uib-pagination total-items="uploads.length" items-per-page="pageSize" ng-model="currentPage "></ul>
+</div>    
+          

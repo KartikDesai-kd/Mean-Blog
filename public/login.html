@@ -1,0 +1,39 @@
+
+    <style>
+        .top{
+            margin-top: 40%;
+        }
+
+        .caja{
+            border-radius: 5px;
+        }
+    </style>
+
+<div class="container" ng-controller="LoginController">
+	<div class="col-md-4 col-md-offset-4">
+		<section>
+			<div class="panel panel-default top caja">
+			  <div class="panel-body">
+			    <h3 class="text-center">Admin Login</h3>
+			    
+			    <form name="loginForm">
+			    	<div class="input-group input-group-lg">
+					  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+					  <input type="email" name="email" id="email" ng-model="login.email" class="form-control"  placeholder="Email" aria-describedby="sizing-addon1" value="admin@gmail.com" required />
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+					  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+					  <input type="password" name="password" id="password" ng-model="login.password" class="form-control"  placeholder="Password" value="123456789" aria-describedby="sizing-addon1" required />
+					</div>
+					<br>
+					 <button type="button" ng-click="submit(login)" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Login</button>
+
+			    </form>
+			  </div>
+			</div>
+		</section> <br><br><br>
+        <h4 style="color:green;">Email:admin@gmail.com and Password:123456789</h4>
+	</div>
+	
+</div>
