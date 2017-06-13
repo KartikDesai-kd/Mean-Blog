@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "mean stack app with crud operations on blog posts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kartik desai",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "formidable": "^1.1.1",
+    "fs": "0.0.1-security",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.10.5",
+    "multer": "^1.3.0",
+    "ng-file-upload": "^12.2.13",
+    "nodemon": "^1.11.0"
+  }
+}
